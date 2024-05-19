@@ -9,7 +9,7 @@ screen.tracer(0)
 r_paddle = paddle.Paddle((-350,0))
 l_paddle = paddle.Paddle((350,0))
 
-ball = ball.Ball()
+ball_1 = ball.Ball()
 
 score = scoreboard.Scoreboard()
 
@@ -24,21 +24,21 @@ game_is_on = True
 while game_is_on:
     time.sleep(0.5)
     screen.update()
-    ball.move()
+    ball_1.move()
     
     # Detect collision with wall
-    if ball.ycor() > 280 or ball.ycor() < -280:
-        ball.bounce_y()
+    if ball_1.ycor() > 280 or ball_1.ycor() < -280:
+        ball_1.bounce_y()
         
-    if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -340 :
-        ball.bounce_x()
+    if ball_1.distance(r_paddle) < 50 and ball_1.xcor() > 320 or ball_1.distance(l_paddle) < 50 and ball_1.xcor() < -340:
+        ball_1.bounce_x()
         
-    if ball.xcor() > 380:
-        ball.reset_position()
+    if ball_1.xcor() > 380:
+        ball_1.reset_position()
         score.l_point()
         
-    if ball.xcor() > -380:
-        ball.reset_position()
+    if ball_1.xcor() > -380:
+        ball_1.reset_position()
         score.r_point()
 
 screen.exitonclick()
